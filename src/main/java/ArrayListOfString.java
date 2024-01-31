@@ -37,7 +37,7 @@ public class ArrayListOfString implements ListOfString {
      */
     @Override
     public int size() {
-        return size;
+        return 0; // TODO: Implement
     }
 
     /**
@@ -49,35 +49,12 @@ public class ArrayListOfString implements ListOfString {
      */
     @Override
     public String get(int index) {
-        if (index < 0 || index >= size()) {
-            throw new IndexOutOfBoundsException(
-                    String.format("Index %d is out of bounds for list of size %d",
-                            index, size()));
-        }
-        return array[index];
+        return null; // TODO: Implement
     }
 
     // Increases the capacity of this list, if necessary, to hold at least the
     // number of elements specified by the minimum capacity argument.
     private void ensureCapacity(int minCapacity) {
-        if (minCapacity > getCapacity()) {
-            // Allocate a bigger array.
-            String[] newArray = new String[minCapacity];
-
-            // Copy all elements of the old array into the new array.
-            System.arraycopy(array, 0, newArray, 0, array.length);
-
-            // Make the instance variable point to the new array.
-            array = newArray;
-        }
-    }
-
-    private boolean isFull() {
-        return size == getCapacity();
-    }
-
-    private void doubleCapacity() {
-        ensureCapacity(2 * getCapacity());
     }
 
     /**
@@ -87,9 +64,6 @@ public class ArrayListOfString implements ListOfString {
      */
     @Override
     public void add(String s) {
-        if (isFull()) {
-            doubleCapacity();
-        }
-        array[size++] = s;
+        // TODO: Implement
     }
 }
