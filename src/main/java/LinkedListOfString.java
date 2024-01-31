@@ -1,5 +1,5 @@
 public class LinkedListOfString implements ListOfString {
-    Node head; // first node
+    private Node head; // first node, nullable
 
     /**
      * Creates an empty linked list.
