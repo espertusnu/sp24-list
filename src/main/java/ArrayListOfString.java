@@ -3,7 +3,7 @@ public class ArrayListOfString implements ListOfString {
     private static final int INITIAL_CAPACITY = 10;
 
     // The number of strings in the array, not the size of the array
-    protected int size;
+    private int size;
 
     private String[] array;
 
