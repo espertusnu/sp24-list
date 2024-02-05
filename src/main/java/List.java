@@ -18,7 +18,7 @@ public interface List<T> {
     /**
      * Adds the given item at the end of this list.
      *
-     * @param s the item to add
+     * @param item the item to add
      */
-    public void add(T s);
+    public void add(T item);
 }
