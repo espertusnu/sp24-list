@@ -1,6 +1,6 @@
 class LinkedListTest extends ListOfStringTest {
     @Override
-    ListOfString makeListOfString() {
-        return new LinkedList();
+    List<String> makeListOfString() {
+        return new LinkedList<String>();
     }
 }

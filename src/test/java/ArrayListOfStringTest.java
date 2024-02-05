@@ -1,6 +1,6 @@
 class ArrayListOfStringTest extends ListOfStringTest {
     @Override
-    ListOfString makeListOfString() {
-        return new ArrayListOfString();
+    List<String> makeListOfString() {
+        return new ArrayList<String>();
     }
 }

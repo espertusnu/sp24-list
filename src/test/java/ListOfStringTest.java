@@ -4,19 +4,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 abstract class ListOfStringTest {
-    ListOfString emptyList;
-    ListOfString listABC;
+    List<String> emptyList;
+    List<String> listABC;
 
-    abstract ListOfString makeListOfString();
+    abstract List<String> makeListOfString();
 
     @BeforeEach
     public void setup() {
-        emptyList = new ArrayListOfString();
-        listABC = new ArrayListOfString();
+        emptyList = makeListOfString();
+        listABC = makeListOfString();
         listABC.add("A");
         listABC.add("B");
         listABC.add("C");
-        1
     }
 
     int getHealth() {
