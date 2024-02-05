@@ -1,17 +1,17 @@
-public class LinkedListOfString implements ListOfString {
-    Node head; // first node
+public class LinkedList<T> implements List<T> {
+    Node<T> head; // first node
 
     /**
      * Creates an empty linked list.
      */
-    public LinkedListOfString() {
+    public LinkedList() {
         head = null;
     }
 
     @Override
     public int size() {
         int count = 0;
-        Node node = head;
+        Node<T> node = head;
         while (node != null) {
             count++;
             node = node.next;
@@ -20,13 +20,13 @@ public class LinkedListOfString implements ListOfString {
     }
 
     @Override
-    public String get(int index) {
+    public T get(int index) {
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException(
                     String.format("Index %d is out of bounds for list of size %d",
                             index, size()));
         }
-        Node node = head;
+        Node<T> node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
@@ -34,12 +34,12 @@ public class LinkedListOfString implements ListOfString {
     }
 
     @Override
-    public void add(String s) {
-        Node newNode = new Node(s);
+    public void add(T item) {
+        Node<T> newNode = new Node<>(item);
         if (head == null) {
             head = newNode;
         } else {
-            Node node = head;
+            Node<T> node = head;
             while (node.next != null) {
                 node = node.next;
             }
@@ -47,11 +47,11 @@ public class LinkedListOfString implements ListOfString {
         }
     }
 
-    private static class Node {
-        String value;
-        Node next; // nullable
+    private static class Node<T> {
+        T value;
+        Node<T> next; // nullable
 
-        private Node(String value) {
+        private Node(T value) {
             this.value = value;
             this.next = null;
         }

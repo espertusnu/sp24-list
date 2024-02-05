@@ -1,11 +1,11 @@
-public class ArrayListOfString implements ListOfString {
+public class ArrayList<T> implements List<T> {
     // If this constant is changed, also change the constructor javadoc.
     private static final int INITIAL_CAPACITY = 10;
 
-    // The number of strings in the array, not the size of the array
+    // The number of items in the array, not the size of the array
     private int size;
 
-    private String[] array;
+    private T[] array;
 
     private int getCapacity() {
         return array.length;
@@ -14,7 +14,7 @@ public class ArrayListOfString implements ListOfString {
     /**
      * Creates an empty array list.
      */
-    public ArrayListOfString() {
+    public ArrayList() {
         this(INITIAL_CAPACITY);
     }
 
@@ -25,15 +25,15 @@ public class ArrayListOfString implements ListOfString {
      *
      * @param initialCapacity the initial capacity of the array
      */
-    public ArrayListOfString(int initialCapacity) {
-        array = new String[initialCapacity];
+    public ArrayList(int initialCapacity) {
+        array = (T[]) new Object[initialCapacity];
         size = 0;
     }
 
     /**
-     * Gets the number of strings in this list.
+     * Gets the number of items in this list.
      *
-     * @return the number of strings in this list.
+     * @return the number of items in this list.
      */
     @Override
     public int size() {
@@ -41,14 +41,14 @@ public class ArrayListOfString implements ListOfString {
     }
 
     /**
-     * Gets the string at the specified index.
+     * Gets the item at the specified index.
      *
      * @param index the 0-based index
-     * @return the string at the specified index
+     * @return the item at the specified index
      * @throws IndexOutOfBoundsException if index is out of range
      */
     @Override
-    public String get(int index) {
+    public T get(int index) {
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException(
                     String.format("Index %d is out of bounds for list of size %d",
@@ -62,7 +62,7 @@ public class ArrayListOfString implements ListOfString {
     private void ensureCapacity(int minCapacity) {
         if (minCapacity > getCapacity()) {
             // Allocate a bigger array.
-            String[] newArray = new String[minCapacity];
+            T[] newArray = (T[]) new Object[minCapacity];
 
             // Copy all elements of the old array into the new array.
             System.arraycopy(array, 0, newArray, 0, array.length);
@@ -81,15 +81,15 @@ public class ArrayListOfString implements ListOfString {
     }
 
     /**
-     * Adds the given string at the end of this list.
+     * Adds the given item at the end of this list.
      *
-     * @param s the string to add
+     * @param item the item to add
      */
     @Override
-    public void add(String s) {
+    public void add(T item) {
         if (isFull()) {
             doubleCapacity();
         }
-        array[size++] = s;
+        array[size++] = item;
     }
 }

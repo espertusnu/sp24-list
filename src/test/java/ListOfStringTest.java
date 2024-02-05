@@ -16,6 +16,11 @@ abstract class ListOfStringTest {
         listABC.add("A");
         listABC.add("B");
         listABC.add("C");
+        1
+    }
+
+    int getHealth() {
+        return 0;
     }
 
     @Test
